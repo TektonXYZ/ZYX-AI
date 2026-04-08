@@ -8,6 +8,8 @@ from contextlib import asynccontextmanager
 
 from zyx_ai.core.config import settings
 from zyx_ai.api.auth import router as auth_router
+from zyx_ai.api.trading import router as trading_router
+from zyx_ai.api.portfolio import router as portfolio_router
 
 
 @asynccontextmanager
@@ -15,6 +17,8 @@ async def lifespan(app: FastAPI):
     """Application lifespan events."""
     # Startup
     print(f"Starting {settings.app_name} v{settings.app_version}")
+    print(f"Environment: {settings.app_env}")
+    print(f"Paper Trading: {settings.enable_paper_trading}")
     yield
     # Shutdown
     print(f"Shutting down {settings.app_name}")
@@ -39,6 +43,8 @@ app.add_middleware(
 
 # Include routers
 app.include_router(auth_router)
+app.include_router(trading_router)
+app.include_router(portfolio_router)
 
 
 @app.get("/")
