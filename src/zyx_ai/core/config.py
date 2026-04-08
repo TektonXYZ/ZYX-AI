@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
     
     # Application
-    app_name: str = Field(default="ZYX AI", env="APP_NAME")
+    app_name: str = Field(default="XYZ Bot", env="APP_NAME")
     app_version: str = Field(default="1.0.0", env="APP_VERSION")
     app_env: str = Field(default="development", env="APP_ENV")
     debug: bool = Field(default=False, env="DEBUG")

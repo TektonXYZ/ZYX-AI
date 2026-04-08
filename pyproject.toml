@@ -9,7 +9,7 @@ description = "High-frequency quantitative trading AI with leverage"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "ZYX AI Team", email = "dev@zyx-ai.io"}
+    {name = "XYZ Bot Team", email = "dev@zyx-ai.io"}
 ]
 keywords = ["trading", "algorithmic", "crypto", "quantitative", "hft"]
 classifiers = [
@@ -59,10 +59,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/TektonXYZ/ZYX-AI"
-Documentation = "https://github.com/TektonXYZ/ZYX-AI#readme"
-Repository = "https://github.com/TektonXYZ/ZYX-AI"
-Issues = "https://github.com/TektonXYZ/ZYX-AI/issues"
+Homepage = "https://github.com/XYZ BotXYZ/ZYX-AI"
+Documentation = "https://github.com/XYZ BotXYZ/ZYX-AI#readme"
+Repository = "https://github.com/XYZ BotXYZ/ZYX-AI"
+Issues = "https://github.com/XYZ BotXYZ/ZYX-AI/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

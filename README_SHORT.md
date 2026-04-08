@@ -1,4 +1,4 @@
-# ZYX AI
+# XYZ Bot
 
 > High-frequency quantitative trading AI with leverage
 
