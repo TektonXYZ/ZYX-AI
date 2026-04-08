@@ -10,6 +10,13 @@ from zyx_ai.core.config import settings
 from zyx_ai.api.auth import router as auth_router
 from zyx_ai.api.trading import router as trading_router
 from zyx_ai.api.portfolio import router as portfolio_router
+from zyx_ai.core.monitoring import PerformanceMonitor, CircuitBreaker
+from zyx_ai.core.alerts import alert_manager, AlertSeverity
+
+
+# Global monitoring instances
+monitor = PerformanceMonitor()
+circuit_breaker = CircuitBreaker()
 
 
 @asynccontextmanager
@@ -19,9 +26,25 @@ async def lifespan(app: FastAPI):
     print(f"Starting {settings.app_name} v{settings.app_version}")
     print(f"Environment: {settings.app_env}")
     print(f"Paper Trading: {settings.enable_paper_trading}")
+    
+    # Send startup alert
+    await alert_manager.send_alert(
+        title="ZYX AI Started",
+        message=f"Version {settings.app_version} is now operational",
+        severity=AlertSeverity.INFO
+    )
+    
     yield
+    
     # Shutdown
     print(f"Shutting down {settings.app_name}")
+    
+    # Send shutdown alert
+    await alert_manager.send_alert(
+        title="ZYX AI Shutting Down",
+        message="Application is stopping",
+        severity=AlertSeverity.WARNING
+    )
 
 
 app = FastAPI(
@@ -61,9 +84,42 @@ async def root():
 @app.get("/health")
 async def health_check():
     """Health check endpoint."""
+    health = monitor.check_health()
+    
     return {
-        "status": "healthy",
-        "version": settings.app_version
+        "status": "healthy" if health["healthy"] else "unhealthy",
+        "version": settings.app_version,
+        "issues": health["issues"],
+        "metrics": health["metrics"],
+        "circuit_breaker": circuit_breaker.state
+    }
+
+
+@app.get("/metrics")
+async def get_metrics():
+    """Get detailed performance metrics."""
+    return monitor.get_metrics()
+
+
+@app.get("/status")
+async def get_status():
+    """Get full system status."""
+    return {
+        "app": {
+            "name": settings.app_name,
+            "version": settings.app_version,
+            "environment": settings.app_env,
+        },
+        "health": monitor.check_health(),
+        "circuit_breaker": {
+            "state": circuit_breaker.state,
+            "failure_count": circuit_breaker.failure_count,
+        },
+        "settings": {
+            "paper_trading": settings.enable_paper_trading,
+            "auto_trading": settings.enable_auto_trading,
+            "max_leverage": settings.max_leverage,
+        }
     }
 
 
