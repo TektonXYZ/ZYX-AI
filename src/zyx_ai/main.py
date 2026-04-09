@@ -29,7 +29,7 @@ async def lifespan(app: FastAPI):
     
     # Send startup alert
     await alert_manager.send_alert(
-        title="XYZ Bot Started",
+        title="XYZ AI Started",
         message=f"Version {settings.app_version} is now operational",
         severity=AlertSeverity.INFO
     )
@@ -41,7 +41,7 @@ async def lifespan(app: FastAPI):
     
     # Send shutdown alert
     await alert_manager.send_alert(
-        title="XYZ Bot Shutting Down",
+        title="XYZ AI Shutting Down",
         message="Application is stopping",
         severity=AlertSeverity.WARNING
     )

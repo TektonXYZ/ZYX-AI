@@ -1,5 +1,5 @@
 """
-Database models for XYZ Bot trading system.
+Database models for XYZ AI trading system.
 Uses SQLAlchemy 2.0 with proper type annotations.
 """
 

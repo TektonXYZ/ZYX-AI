@@ -1,4 +1,4 @@
-# XYZ Bot - High-Frequency Quantitative Trading System
+# XYZ AI - High-Frequency Quantitative Trading System
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -76,7 +76,7 @@ zyx-ai/
 
 ```bash
 # Clone repository
-git clone https://github.com/XYZ BotXYZ/ZYX-AI.git
+git clone https://github.com/XYZ AIXYZ/ZYX-AI.git
 cd ZYX-AI
 
 # Install dependencies
@@ -310,6 +310,6 @@ Trading cryptocurrencies and other financial instruments carries a high level of
 
 ---
 
-**Built with ❤️ by the XYZ Bot Team**
+**Built with ❤️ by the XYZ AI Team**
 
 For questions or support, open an issue on GitHub.

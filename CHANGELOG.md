@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [1.0.0] - 2026-04-08
 
 ### Added
-- Initial release of XYZ Bot trading system
+- Initial release of XYZ AI trading system
 - FastAPI backend with async support
 - PostgreSQL database with SQLAlchemy ORM
 - Alembic migrations
