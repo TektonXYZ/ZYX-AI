@@ -76,7 +76,7 @@ zyx-ai/
 
 ```bash
 # Clone repository
-git clone https://github.com/XYZ AIXYZ/ZYX-AI.git
+git clone https://github.com/TektonXYZ/ZYX-AI.git
 cd ZYX-AI
 
 # Install dependencies

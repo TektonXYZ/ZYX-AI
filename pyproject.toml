@@ -59,10 +59,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/XYZ AIXYZ/ZYX-AI"
-Documentation = "https://github.com/XYZ AIXYZ/ZYX-AI#readme"
-Repository = "https://github.com/XYZ AIXYZ/ZYX-AI"
-Issues = "https://github.com/XYZ AIXYZ/ZYX-AI/issues"
+Homepage = "https://github.com/TektonXYZ/ZYX-AI"
+Documentation = "https://github.com/TektonXYZ/ZYX-AI#readme"
+Repository = "https://github.com/TektonXYZ/ZYX-AI"
+Issues = "https://github.com/TektonXYZ/ZYX-AI/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
